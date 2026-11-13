@@ -1,0 +1,20 @@
+{
+    "agents": [
+        "codex",
+        "gemini"
+    ],
+    "guidelines": false,
+    "herd_mcp": true,
+    "mcp": true,
+    "nightwatch_mcp": false,
+    "packages": [
+        "laravel/fortify"
+    ],
+    "sail": false,
+    "skills": [
+        "wayfinder-development",
+        "inertia-vue-development",
+        "tailwindcss-development",
+        "fortify-development"
+    ]
+}
