@@ -210,4 +210,3 @@ Use the credentials in Git-ignored [demo-credentials.md](file:///Users/yonassayf
      - **Expected:** The row’s status changes to `Ended (YYYY-MM-DD)` and preserves its original `starts_on` and `ends_on`.
    - Click **Start New Service Period** (`አዲስ የአገልግሎት ጊዜ ጀምር`) on that ended row:
      - **Expected:** A **new** active `DepartmentMembership` row is created for the new period while the ended row remains intact in the participation history list below it.
-

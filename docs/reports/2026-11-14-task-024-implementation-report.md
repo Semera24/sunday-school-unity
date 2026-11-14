@@ -126,4 +126,3 @@ Explicitly: **no automated test suites were written, installed, or run.**
 - Suggested next task (proposal only): after reviewer assessment and owner manual acceptance of TASK-024, proceed to **TASK-007 / TASK-010** (settle remaining production onboarding/field decisions and implement full membership registration and account-linking workflows).
 
 Stop here pending review. Do not automatically start another task.
-

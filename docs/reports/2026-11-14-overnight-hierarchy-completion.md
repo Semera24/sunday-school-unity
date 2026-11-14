@@ -268,4 +268,3 @@ flowchart TD
   - Pre-existing 3 ESLint stylistic padding warnings in reviewer-owned `resources/js/composables/useT.ts` and `resources/js/layouts/settings/Layout.vue` remain untouched to respect reviewer file boundaries.
 - **Single Recommended Next Task After Owner Acceptance:**
   - Proceed to **`TASK-010` (People, School Memberships, Account Links, and Local Lead Approval Workflow)** to expand the validated hierarchy/access baseline into full local Sunday School member registration, person-record management (with optional account linking), and membership lifecycle states.
-

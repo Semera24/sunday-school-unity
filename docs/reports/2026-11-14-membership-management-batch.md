@@ -247,4 +247,3 @@
 2. **Cross-School Transfers Deferred:** Cross-school member transfers (`DEP-005`) require source/destination school coordination rules and are deferred beyond `TASK-028`.
 3. **Assigned Forms & Responses (`TASK-011` Remainder):** Member self-service profile editing and `service_notes` are implemented; versioned form definitions/audiences/responses (`MEM-003`) remain planned under `TASK-011`.
 4. **Local PostgreSQL Password Parity (`TASK-025` Note):** Local PostgreSQL `127.0.0.1:5432` connects under local trust authentication; `.env` password parity with the PostgreSQL role has not been tested under `scram-sha-256`.
-
