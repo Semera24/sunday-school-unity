@@ -16,6 +16,9 @@ export type ManagedUser = {
     email: string;
     roles: string[];
     isCurrentUser: boolean;
+    isBusinessIdentity?: boolean;
+    canEdit?: boolean;
+    canDelete?: boolean;
     emailVerifiedAt: string | null;
     createdAt: string | null;
 };

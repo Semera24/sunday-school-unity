@@ -56,6 +56,7 @@ class GlobalSearchController extends Controller
     {
         $items = User::query()
             ->with('roles')
+            ->technicalOnly()
             ->where(function ($userQuery) use ($query): void {
                 $userQuery
                     ->where('name', 'like', "%{$query}%")
@@ -151,6 +152,7 @@ class GlobalSearchController extends Controller
     private function searchActivityLogs(string $query): array
     {
         $items = ActivityLog::query()
+            ->excludePrivateSchoolEvents()
             ->where(function ($logQuery) use ($query): void {
                 $logQuery
                     ->where('event', 'like', "%{$query}%")

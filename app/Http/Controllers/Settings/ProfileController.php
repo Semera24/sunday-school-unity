@@ -31,22 +31,24 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
+        $user->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $user->save();
 
         ActivityLogger::record(
-            actor: $request->user(),
+            actor: $user,
             event: 'settings.profile-updated',
             description: 'Updated profile settings.',
-            subject: $request->user(),
+            subject: $user,
             properties: [
-                'email_changed' => $request->user()->wasChanged('email'),
-                'name_changed' => $request->user()->wasChanged('name'),
+                'email_changed' => $user->wasChanged('email'),
+                'name_changed' => $user->wasChanged('name'),
+                'locale' => $user->locale,
             ],
             request: $request,
         );
@@ -60,6 +62,12 @@ class ProfileController extends Controller
     public function destroy(ProfileDeleteRequest $request): RedirectResponse
     {
         $user = $request->user();
+
+        abort_if(
+            $user->isProtectedDemoPersona() || $user->hasBusinessIdentity() || $user->hasTechnicalIdentity(),
+            403,
+            'Protected demonstration and appointed Sunday School accounts cannot be self-deleted.'
+        );
 
         ActivityLogger::record(
             actor: $user,

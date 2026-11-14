@@ -14,6 +14,7 @@ class Locales
      * @var array<string, string> Map of locale codes to display labels.
      */
     private const SUPPORTED = [
+        'am' => 'አማርኛ',
         'en' => 'English',
     ];
 
@@ -48,6 +49,6 @@ class Locales
      */
     public static function defaultCode(): string
     {
-        return config('app.locale', 'en');
+        return config('app.locale', 'am');
     }
 }

@@ -6,6 +6,7 @@ use App\Concerns\PasswordValidationRules;
 use App\Concerns\ProfileValidationRules;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -24,10 +25,10 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => $input['password'],
+        throw ValidationException::withMessages([
+            'email' => [
+                'ክፍት የሕዝብ ምዝገባ ለጊዜው ተዘግቷል፤ እባክዎ ለማሳያ የተዘጋጁትን የናሙና መለያዎች ይጠቀሙ (Open self-registration is disabled until Sunday School lead onboarding is enabled — BP-003).',
+            ],
         ]);
     }
 }

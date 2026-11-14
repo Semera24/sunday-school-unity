@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Database\Factories\ActivityLogFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,6 +13,34 @@ class ActivityLog extends Model
 {
     /** @use HasFactory<ActivityLogFactory> */
     use HasFactory;
+
+    /**
+     * Private school/member/invitation/department/draft audit events that must not be exposed to technical operators.
+     *
+     * @var list<string>
+     */
+    public const PRIVATE_SCHOOL_EVENTS = [
+        'member-profile.updated',
+        'memberships.registered',
+        'memberships.updated',
+        'memberships.approved',
+        'memberships.rejected',
+        'memberships.suspended',
+        'memberships.archived',
+        'memberships.reactivated',
+        'invitations.created',
+        'invitations.resent',
+        'invitations.mail-failed',
+        'invitations.revoked',
+        'invitations.accepted-pending-lead',
+        'invitations.link-approved',
+        'invitations.link-rejected',
+        'department-memberships.assigned',
+        'department-memberships.reassigned',
+        'department-memberships.updated',
+        'reports.submitted-local',
+        'departments.created',
+    ];
 
     public $timestamps = false;
 
@@ -58,5 +87,13 @@ class ActivityLog extends Model
     public function subject(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    /**
+     * Exclude private school/member/invitation/department/draft audit events from technical operator logs.
+     */
+    public function scopeExcludePrivateSchoolEvents(Builder $query): Builder
+    {
+        return $query->whereNotIn('event', self::PRIVATE_SCHOOL_EVENTS);
     }
 }

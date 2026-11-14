@@ -1,0 +1,616 @@
+{
+  "date": "14 November 2026",
+  "status_am": "ለመጀመሪያ ግምገማ የቀረበ ስሪት፤ የባለቤቱ ማረጋገጫ በመጠባበቅ ላይ",
+  "status_en": "First-review candidate; owner manual acceptance pending",
+  "slides": [
+    {
+      "am": "የሰንበት ትምህርት ቤቶች አንድነት",
+      "en": "Sunday School Unity",
+      "rows": [
+        [
+          "የአባላት አስተዳደርና የአገልግሎት ማስተባበሪያ መተግበሪያ",
+          "Membership administration and service coordination"
+        ],
+        [
+          "የመዋቅርና የአባልነት አስተዳደር የመጀመሪያ ግምገማ",
+          "First review: hierarchy and membership management"
+        ],
+        [
+          "የሥራ ስም ነው፤ ኦፊሴላዊ ተቋማዊ ድጋፍ አልተረጋገጠም።",
+          "Working product name; institutional endorsement is unconfirmed."
+        ]
+      ]
+    },
+    {
+      "am": "መተግበሪያው የሚፈታው ችግር",
+      "en": "The problem addressed",
+      "rows": [
+        [
+          "የአባላት፣ የክፍሎችና የኃላፊነት መረጃ በአንድ የሥራ ቦታ ይደራጃል።",
+          "Bring members, departments and responsibilities into one local workspace."
+        ],
+        [
+          "ማን ምን ማየትና ማስተካከል እንደሚችል በኃላፊነትና በወሰን ይለያል።",
+          "Make access depend on responsibility and organizational scope."
+        ],
+        [
+          "የአካባቢ ውሳኔና የበላይ ክትትል ግልጽ የሥራ ፍሰት ያገኛሉ።",
+          "Separate local approval from higher-office oversight."
+        ]
+      ]
+    },
+    {
+      "am": "የዚህ ግምገማ ወሰን",
+      "en": "Scope of this review",
+      "rows": [
+        [
+          "ተተግብሯል፦ መዋቅር፣ የመጠቀሚያ ፈቃዶች፣ ምዝገባና የአባልነት ዑደት።",
+          "Implemented: hierarchy, scoped access, registration and membership lifecycle."
+        ],
+        [
+          "የማሳያ ወሰን፦ የሪፖርት አቀራረብ፣ ልቀትና የበላይ እይታ።",
+          "Demonstration scope: report submission, release and higher-office visibility."
+        ],
+        [
+          "ያልተጠናቀቀ፦ ሙሉ የታቀደው MVP እና የባለቤቱ የእጅ ማረጋገጫ።",
+          "Not complete: the broader planned MVP and owner manual acceptance."
+        ]
+      ]
+    },
+    {
+      "am": "መዋቅር የመተግበሪያው መሠረት ነው",
+      "en": "The coordinating hierarchy",
+      "kind": "hierarchy",
+      "rows": [
+        [
+          "ማዕከላዊ አንድነት",
+          "Central union"
+        ],
+        [
+          "ሀገረ ስብከት",
+          "Diocese"
+        ],
+        [
+          "ወረዳ / ክፍለ ከተማ",
+          "District / sub-city"
+        ],
+        [
+          "የደብር ሰንበት ትምህርት ቤት",
+          "Parish Sunday School"
+        ]
+      ],
+      "note_am": "ከተማና ደብር የአውድ መረጃ ናቸው፤ የፈቃድ ወሰን በመዋቅሩ ይወሰናል።",
+      "note_en": "City and church are context. Jurisdiction follows the coordinating structure."
+    },
+    {
+      "am": "ሦስቱ ዋና የግምገማ መለያዎች",
+      "en": "Three principal roles",
+      "rows": [
+        [
+          "የአንድነቱ የበላይ አስተዳዳሪ፦ አገር አቀፍ መዋቅር፣ ምደባና የተለቀቁ ሪፖርቶች።",
+          "Union administrator: nationwide hierarchy, lead appointments and released reports."
+        ],
+        [
+          "የሰንበት ት/ቤት ዋና አስተባባሪ፦ የራሱ ት/ቤት አባላት፣ ክፍሎችና ማጽደቆች።",
+          "School lead: own-school members, departments and local approvals."
+        ],
+        [
+          "ቴክኒካል ኦፕሬተር፦ የመድረኩ አስተዳደር፤ የግል የአባል መረጃ መዳረሻ አያገኝም።",
+          "Technical operator: platform administration without private member access."
+        ]
+      ]
+    },
+    {
+      "am": "የአባል መዝገብና የመግቢያ መለያ",
+      "en": "A member record is separate from a login",
+      "rows": [
+        [
+          "አባል ያለ መግቢያ መለያ ሊመዘገብ ይችላል።",
+          "Register a member without requiring a login account."
+        ],
+        [
+          "ስም፣ አማራጭ የእንግሊዝኛ አጻጻፍ፣ ስልክና የአገልግሎት ማስታወሻ ይያዛሉ።",
+          "Record original name, optional English spelling, phone and service notes."
+        ],
+        [
+          "ተመሳሳይ ስም ወይም ስልክ የአንድ ሰው ማረጋገጫ አይደለም።",
+          "A matching name or phone is a warning, not proof of the same person."
+        ]
+      ]
+    },
+    {
+      "am": "ግብዣና የመለያ ትስስር",
+      "en": "Invitation and account linking",
+      "rows": [
+        [
+          "ዋና አስተባባሪው ለተመዘገበው አባል ግብዣ ይልካል።",
+          "The local lead invites the registered member."
+        ],
+        [
+          "ተጋባዡ ግብዣውን ይቀበላል፤ ጥያቄው እስኪጸድቅ የግል መዳረሻ አያገኝም።",
+          "The recipient accepts; private access waits for lead approval."
+        ],
+        [
+          "ዋና አስተባባሪው ትስስሩን ያጸድቃል ወይም ይከለክላል።",
+          "The lead approves or rejects the account-to-member link."
+        ]
+      ]
+    },
+    {
+      "am": "የአባልነት ሁኔታና ታሪክ",
+      "en": "Membership status and history",
+      "rows": [
+        [
+          "በመጠባበቅ ላይ፣ የጸደቀ፣ የተከለከለ፣ የታገደና ወደ ማህደር የተዛወረ።",
+          "Pending, approved, rejected, suspended and archived states."
+        ],
+        [
+          "ውሳኔዎች ውሳኔ ሰጪውን፣ ጊዜንና ምክንያትን ይይዛሉ።",
+          "Decisions retain actor, time and reason."
+        ],
+        [
+          "ድጋሚ ማንቃት የቀድሞ የአስተዳደር ምደባን በራሱ አይመልስም።",
+          "Reactivation does not automatically restore an old administrative appointment."
+        ]
+      ]
+    },
+    {
+      "am": "ክፍሎችና የአገልግሎት ምደባ",
+      "en": "Departments and participation",
+      "rows": [
+        [
+          "አንድ አባል በብዙ ክፍሎች ሊያገለግል ይችላል፤ የሰው መዝገቡ አይደገምም።",
+          "One person can serve in multiple departments without duplicate person records."
+        ],
+        [
+          "እያንዳንዱ የአገልግሎት ጊዜ የመጀመሪያና የመጨረሻ ቀን ይይዛል።",
+          "Participation periods have start and end dates; ended periods remain in history."
+        ],
+        [
+          "የክፍል አባልነት በራሱ የአስተዳዳሪ ፈቃድ አይሰጥም።",
+          "Department membership alone never grants administrator privileges."
+        ]
+      ]
+    },
+    {
+      "am": "ሪፖርቶች፦ ያለውና የሚቀጥለው",
+      "en": "Reporting: current and planned",
+      "rows": [
+        [
+          "ያለው፦ የማሳያ ሪፖርት፣ ለዋና አስተባባሪ አቀራረብና ወደ ላይ ልቀት።",
+          "Current: demonstration reports, local submission and lead-controlled release."
+        ],
+        [
+          "የበላይ ጽሕፈት ቤቶች በወሰናቸው የተለቀቁ ሪፖርቶችን ያያሉ።",
+          "Higher offices see released reports within jurisdiction and function."
+        ],
+        [
+          "የሚቀጥለው፦ የሪፖርት ወቅቶች፣ ቅጾች፣ ስሪቶችና የእርማት ዑደት።",
+          "Planned: reporting cycles, templates, versioning and return-for-correction workflows."
+        ]
+      ]
+    },
+    {
+      "am": "ቋንቋና መረጃ",
+      "en": "Language and stored data",
+      "rows": [
+        [
+          "አማርኛ ዋና ቋንቋ ነው፤ እንግሊዝኛ በግል ቅንብር ይመረጣል።",
+          "Amharic is default; English is selected in profile settings."
+        ],
+        [
+          "የተጻፈው አማርኛ፣ እንግሊዝኛ ወይም ቅይጥ ጽሑፍ እንዳለ ይቀመጣል።",
+          "Original Amharic, English and mixed text is preserved in PostgreSQL UTF-8."
+        ],
+        [
+          "ቋንቋ መቀየር ስምንና የሪፖርት ይዘትን በራሱ አይተረጉምም።",
+          "Changing the interface language does not translate names or submitted reports."
+        ]
+      ]
+    },
+    {
+      "am": "የቀጥታ ማሳያ ፍሰት",
+      "en": "Suggested live demonstration",
+      "rows": [
+        [
+          "1. አንድነት፦ መዋቅሩንና የተለቀቁ ሪፖርቶችን አሳይ።",
+          "1. Union: show the hierarchy and released reports."
+        ],
+        [
+          "2. ዋና አስተባባሪ፦ አባል መዝግብ፣ ክፍል መድብና ግብዣ ላክ።",
+          "2. School lead: register a member, assign departments and invite."
+        ],
+        [
+          "3. አባል፦ ግብዣ ተቀበል፣ የመሪውን ፈቃድ ጠብቅና የራስ መረጃ አዘምን።",
+          "3. Member: accept, wait for approval and update the own profile."
+        ]
+      ]
+    },
+    {
+      "am": "ከግምገማ ወደ ሙከራ አገልግሎት",
+      "en": "Readiness before a live pilot",
+      "rows": [
+        [
+          "የባለቤቱ የእጅ ማረጋገጫና የተገኙ ችግሮች መፍትሄ ያስፈልጋሉ።",
+          "Complete owner manual acceptance and resolve reported issues."
+        ],
+        [
+          "የፓይለት ት/ቤቶች፣ የመዋቅር ባለቤትነትና የመዳረሻ ፖሊሲ ይጸድቁ።",
+          "Confirm pilot schools, organizational ownership and access policy."
+        ],
+        [
+          "ማስተናገጃ፣ ምትኬ፣ መልሶ ማግኛና የድጋፍ ኃላፊ ይወሰኑ።",
+          "Choose hosting, backups, recovery and operational support."
+        ]
+      ]
+    },
+    {
+      "am": "የሚቀጥሉ ዋና ሥራዎች",
+      "en": "Remaining product milestones",
+      "rows": [
+        [
+          "የክፍል እንቅስቃሴና ተሳትፎ፤ የተመደቡ ቅጾች።",
+          "Department activities, participation and assigned forms."
+        ],
+        [
+          "ሙሉ የሪፖርት አስተዳደር፤ የጋራ መረጃና ልምድ መጋሪያ።",
+          "Full reporting workflows and shared information/resources."
+        ],
+        [
+          "የቀረ ትርጉም፣ የማስተናገጃ ሥራና የተገደበ ፓይለት።",
+          "Remaining localization, deployment preparation and a bounded pilot."
+        ]
+      ]
+    },
+    {
+      "am": "የግምገማው ውሳኔ",
+      "en": "The decision requested",
+      "rows": [
+        [
+          "የአሁኑ መዋቅርና የሥራ ፍሰት ከእውነተኛው አሠራር ጋር ይጣጣማሉ?",
+          "Does the hierarchy and local workflow match real operations?"
+        ],
+        [
+          "የእያንዳንዱ ኃላፊ የመዳረሻ ወሰን ትክክል ነው?",
+          "Are each role's allowed and denied actions appropriate?"
+        ],
+        [
+          "ችግሮችን መዝግበን የቀጣዩን ትግበራ ቅደም ተከተል እንወስን።",
+          "Record issues and agree the next implementation priority."
+        ]
+      ]
+    }
+  ],
+  "manual": [
+    {
+      "am": "ስለ መተግበሪያውና ስለዚህ መመሪያ",
+      "en": "About the app and this guide",
+      "items": [
+        [
+          "Sunday School Unity የአባላት፣ የክፍሎችና የመዋቅር አስተዳደርን የሚያግዝ መተግበሪያ ነው። የት/ቤት አስተዳደር ምሳሌ ቢኖረውም የፈተናና የደመወዝ ሥርዓት አይደለም።",
+          "Sunday School Unity supports members, departments and organizational coordination. The school-management analogy does not imply examinations, payroll or a conventional academic system."
+        ],
+        [
+          "ይህ ሰነድ የ14 ኖቬምበር 2026 የTASK-029 የኮድ ሁኔታን ይገልጻል። የእጅ ማረጋገጫ አልተጠናቀቀም፤ ለብሔራዊ ማሰማራት ዝግጁ መሆንን አያረጋግጥም።",
+          "This guide describes the code snapshot through TASK-029 on 14 November 2026. Manual acceptance is pending. It does not certify national deployment readiness."
+        ],
+        [
+          "የሥራ ስሙ ጊዜያዊ ነው። የተቋሙ ስፖንሰርነትና ኦፊሴላዊ የምርት ስም አልተረጋገጡም። ሁሉም ማሳያዎች ለምሳሌ የተዘጋጁ መዝገቦች ናቸው።",
+          "The product name is provisional; institutional sponsorship and official branding are unconfirmed. Demonstration records are fictional."
+        ],
+        [
+          "መመሪያው የሚጠበቀውን ባህሪ ይገልጻል። በማያ ገጹ ላይ የተለየ ነገር ካዩ እንደ ችግር ይመዝግቡት፤ አስቀድሞ ተረጋግጧል ብለው አይቆጥሩት።",
+          "Instructions describe expected behavior. Record differences you observe; these steps are not a claim that functional verification has passed."
+        ]
+      ]
+    },
+    {
+      "am": "የባህሪያት ዝርዝርና የዝግጁነት ወሰን",
+      "en": "Feature inventory and readiness",
+      "items": [
+        [
+          "ተተግብሯል፦ መዋቅር፣ የሥራ ወሰን መቀየር፣ የመሪዎች ምደባ፣ የአካባቢ ክፍሎች፣ አባላትና የግል መረጃ።",
+          "Implemented for review: hierarchy, scope switching, appointments, local departments, members and self-service profiles."
+        ],
+        [
+          "ተተግብሯል፦ የአባል ምዝገባ፣ ማስተካከያ፣ ሁኔታ መቀየር፣ ግብዣ፣ የመለያ ትስስርና የክፍል አገልግሎት ታሪክ።",
+          "Implemented for review: registration, edits, membership lifecycle, invitations, account linking and department-service history."
+        ],
+        [
+          "በማሳያ ደረጃ፦ የሪፖርት ማቅረብና ልቀት፣ የተለቀቀ ሪፖርት እይታና የማጠቃለያ መረጃ። ይህ ሙሉ የሪፖርት መስሪያ አይደለም።",
+          "Demonstration scope: local report submission/release, released-report views and summaries. This is not a complete reporting product."
+        ],
+        [
+          "የታቀደ፦ የክፍል እንቅስቃሴ፣ ቅጾች፣ የሪፖርት ወቅቶችና ቅጾች፣ የጋራ ልምድ መጋሪያ፣ የማስተናገጃና ፓይለት ሥራ።",
+          "Planned: department activities, assigned forms, report cycles/templates, shared experiences/resources, hosting and pilot operations."
+        ]
+      ]
+    },
+    {
+      "am": "መዋቅርና ዋና ተጠቃሚዎች",
+      "en": "Hierarchy and users",
+      "items": [
+        [
+          "ማዕከላዊ አንድነት > ሀገረ ስብከት > ወረዳ > ሰንበት ት/ቤት። ከተማና ደብር ለመለየት ይጠቅማሉ፤ በአንድ ከተማ ያሉ ት/ቤቶች የግል መረጃ አይጋሩም።",
+          "Union > diocese > district > Sunday School. City and church identify context; schools in the same city do not automatically share private data."
+        ],
+        [
+          "የአንድነቱ አስተዳዳሪ መዋቅርን፣ የመሪ ምደባንና የተለቀቁ ሪፖርቶችን ያስተዳድራል። የአባላት የግል ዝርዝርንና ያልተለቀቁ ረቂቆችን በራሱ አያይም።",
+          "Union administration covers structure, lead appointments and released reports. It does not automatically expose private member directories or unreleased drafts."
+        ],
+        [
+          "ዋና አስተባባሪው የራሱን ት/ቤት ያስተዳድራል። የክፍል አስተባባሪው በተመደበበት ክፍል ይሠራል። አባሉ የራሱን የተፈቀዱ መረጃዎች ያያል።",
+          "A school lead manages the own school. A coordinator operates within the assigned department. A member sees permitted own information."
+        ],
+        [
+          "ቴክኒካል ኦፕሬተሩ የመድረክ ሥራን ይደግፋል። የት/ቤትና የአንድነት መለያዎችን በይለፍ ቃል መቀየር ሊቆጣጠር አይገባም።",
+          "The technical operator supports the platform. Technical user management must not take over business identities by changing their credentials."
+        ]
+      ]
+    },
+    {
+      "am": "መግባት፣ ቋንቋና የሥራ ወሰን",
+      "en": "Login, language and active scope",
+      "items": [
+        [
+          "በፕሮጀክቱ ማውጫ ውስጥ php artisan serve --host=127.0.0.1 --port=8000 ያስኪዱ። ከዚያ http://127.0.0.1:8000/login ይክፈቱ። ይህ የአካባቢ ማሳያ ነው።",
+          "From the project folder run php artisan serve --host=127.0.0.1 --port=8000. Open http://127.0.0.1:8000/login. This is a local demonstration."
+        ],
+        [
+          "የማሳያ ኢሜይሎችንና የይለፍ ቃሎችን storage/app/private/demo-credentials.md ውስጥ ያግኙ። በዚህ መመሪያ ውስጥ የይለፍ ቃሎች አልተካተቱም።",
+          "Use storage/app/private/demo-credentials.md for local demo emails/passwords. Passwords are intentionally excluded from this shareable guide."
+        ],
+        [
+          "አማርኛ ዋና ቋንቋ ነው። /settings/profile ላይ English ወይም አማርኛ ይምረጡና ያስቀምጡ። የቴክኒካል አስተዳደርና አንዳንድ የመለያ ማግኛ ገጾች ገና እንግሊዝኛ ሊሆኑ ይችላሉ።",
+          "Choose English or Amharic at /settings/profile and save. Some inherited technical admin and account-recovery screens may still be English."
+        ],
+        [
+          "ብዙ ምደባ ካለዎት በዋና ገጽ ላይ ንቁ ወሰን ይምረጡ። አንድ ወሰን ከሌላው ፈቃድ ጋር መቀላቀል የለበትም። በማሳያ መለያዎች መካከል ሲቀይሩ መጀመሪያ ይውጡ።",
+          "Use the dashboard scope selector when you hold multiple appointments. Scope privileges must replace, not combine. Log out before changing demo accounts."
+        ]
+      ]
+    },
+    {
+      "am": "የአንድነቱ አስተዳዳሪ ማሳያ",
+      "en": "Union administrator walkthrough",
+      "items": [
+        [
+          "በ union-admin@example.test ይግቡ። /hierarchy ላይ መዋቅሩን ከማዕከል እስከ ት/ቤት ይመልከቱ። የት/ቤት ማጠቃለያ መመልከት የግል አባላትን መመልከት አይደለም።",
+          "Sign in as union-admin@example.test. Inspect the hierarchy from union to schools. School summaries do not imply access to private member directories."
+        ],
+        [
+          "በተፈቀዱ ቅጾች የድርጅት መረጃ ያስተካክሉ፣ ተገቢ የታችኛውን አካል ይጨምሩ ወይም የአካባቢ መሪ ይመድቡ። የውሳኔ መዝገብ መኖሩን ይጠብቁ።",
+          "Use authorized forms to update organization details, add valid subordinate units or appoint local leads. Expect auditable changes."
+        ],
+        [
+          "/reports ላይ የተለቀቁ ሪፖርቶችን ይመልከቱ። /members/1 እና ያልተለቀቀ /reports/2 መከልከል አለባቸው፤ የማሳያ ቁጥሮች ከተቀየሩ ከገጹ ያረጋግጡ።",
+          "View released reports at /reports. Direct access to /members/1 and unreleased /reports/2 should be denied. Confirm fixture IDs if local records have changed."
+        ],
+        [
+          "የመሪ ምደባ የአካባቢ አባልነት ወይም የመለያ ትስስር ማጽደቅን አይተካም። እነዚህን የአካባቢው ዋና አስተባባሪ ያጸድቃል።",
+          "Lead appointment management does not replace local membership or account-link approval; those decisions remain with the school lead."
+        ]
+      ]
+    },
+    {
+      "am": "አባላትን መፈለግ፣ መመዝገብና ማስተካከል",
+      "en": "Find, register and edit members",
+      "items": [
+        [
+          "በ lead-a@example.test ይግቡና /schools/6 ይክፈቱ። ስም፣ ስልክ ወይም የአባል መለያ ይፈልጉ። በሁኔታና በክፍል ያጣሩ። ውጤቶቹ ለዚህ ት/ቤት ብቻ መሆን አለባቸው።",
+          "Sign in as lead-a@example.test and open /schools/6. Search by name, phone or membership code; filter by status/department. Results must remain within this school."
+        ],
+        [
+          "አዲስ አባል ሲመዘግቡ ሙሉ ስም ያስገቡ። አማራጭ የእንግሊዝኛ አጻጻፍ፣ ስልክና ማስታወሻ ይጨምሩ። ያለ መግቢያ መለያ መመዝገብ ይቻላል።",
+          "Enter a full name, with optional English spelling, phone and notes. A member can be registered without a login account."
+        ],
+        [
+          "የተመሳሳይ መዝገብ ማስጠንቀቂያ ከታየ ነባሩን መዝገብ ይመርምሩ። ስምና ስልክ ብቻ ተመሳሳይ ሰው መሆኑን አያረጋግጡም። አባላትን በራስ ሰር አያዋህዱ።",
+          "Inspect any possible local duplicate before continuing. Names and phones alone do not prove identity. Do not automatically merge people."
+        ],
+        [
+          "የአባሉን ገጽ ክፈቱ፣ የተፈቀዱ መስኮችን አስተካክሉና አስቀምጡ። የመለያ ትስስርና የአባልነት ሁኔታ በተለዩ ውሳኔዎች ይቀየራሉ። በብዙ ት/ቤቶች የተጋራ የሰው መዝገብ አርትዖት ለኋላ ተቀምጧል።",
+          "Edit permitted fields on the member detail page. Account linking and lifecycle changes use separate decisions. Editing a person shared across schools is deferred."
+        ]
+      ]
+    },
+    {
+      "am": "ግብዣ መላክና የኢሜይል ሁኔታ",
+      "en": "Send invitations and inspect delivery",
+      "items": [
+        [
+          "በአባሉ ገጽ ላይ የግብዣ ኢሜይል ያስገቡና ይላኩ። ግብዣው የተወሰነ ጊዜ ያለው እና ለአንድ ጊዜ የሚጠቅም አገናኝ ይይዛል።",
+          "From the member page, enter an invitation email and send. The invitation has an expiring, single-use acceptance link."
+        ],
+        [
+          "በአካባቢ ማሳያ ኢሜይሉን http://127.0.0.1:8025 በሚገኘው Mailpit ውስጥ ያግኙ። ይህ እውነተኛ ውጫዊ ኢሜይል አቅርቦት አይደለም።",
+          "For the local demo, open Mailpit at http://127.0.0.1:8025. This captures development mail; it is not external email delivery."
+        ],
+        [
+          "የተላከ፣ በመጠባበቅ ላይ ወይም ያልተሳካ ሁኔታ ይመልከቱ። ካልተሳካ የድጋሚ መላክ አዝራሩን ይጠቀሙ። አዲስ አገናኝ የቀድሞውን ሊተካ ይችላል።",
+          "Inspect sent, pending or failed status. Use the retry/resend action when available; a new link supersedes the old one."
+        ],
+        [
+          "ተቀባዩ ግብዣውን ከተቀበለና የመሪ ውሳኔ እየተጠበቀ ከሆነ ሌላ ግብዣ አይተካውም። የቀድሞውን ጥያቄ በግልጽ ውሳኔ ያጠናቅቁ።",
+          "Once acceptance awaits lead review, do not replace it with another invitation. Resolve or explicitly cancel the current request first."
+        ]
+      ]
+    },
+    {
+      "am": "ግብዣ መቀበልና የመለያ ትስስር ማጽደቅ",
+      "en": "Accept and approve account linking",
+      "items": [
+        [
+          "ግብዣውን በግል አሳሽ መስኮት ይክፈቱ። ያለው መለያ ከሌላ ኢሜይል ከሆነ መጀመሪያ ይውጡ። ነባር ተጋባዥ በራሱ መለያ መግባት አለበት።",
+          "Open the link in a private window. Sign out if the current account uses a different email. An existing invited user must authenticate as that account."
+        ],
+        [
+          "አዲስ ተጠቃሚ የራሱን የይለፍ ቃል ይመርጣል። ነባሩ የሌላ ሰው የይለፍ ቃል መቀየር የለበትም። ቴክኒካል መለያ የአባል መለያ መሆን የለበትም።",
+          "A new recipient chooses a password. Existing passwords are never overwritten. A technical identity must not become a member through this flow."
+        ],
+        [
+          "ከተቀበሉ በኋላ የመሪ ውሳኔ ይጠብቁ። የሌላ አባል የግል መረጃ ወይም የአስተዳደር ገጾች ከማጽደቅ በፊት መታየት የለባቸውም።",
+          "Acceptance creates a pending review request. Before approval, the recipient must not gain target-member private data or school administration access."
+        ],
+        [
+          "ዋና አስተባባሪው በግምገማ ዝርዝሩ ትክክለኛውን ጥያቄ ያጸድቃል ወይም ይከለክላል። የቆየ፣ የተሻረ ወይም የተተካ ጥያቄ አዲስ ትስስርን መቀየር የለበትም።",
+          "The lead approves or rejects the exact current request. Stale, revoked or superseded requests must not change a newer account link."
+        ]
+      ]
+    },
+    {
+      "am": "የአባልነት ሁኔታ ውሳኔዎች",
+      "en": "Membership lifecycle decisions",
+      "items": [
+        [
+          "በመጠባበቅ ላይ ያለን አባል ለማጽደቅ የአካባቢው ዋና አስተባባሪ ፈቃድ ይፈለጋል። የበላይ ጽሕፈት ቤት እያንዳንዱን አባል ድጋሚ አያጸድቅም።",
+          "The school lead approves pending memberships. Higher offices do not countersign each individual membership."
+        ],
+        [
+          "ለማገድ፣ ለመከልከል ወይም ወደ ማህደር ለማዛወር ተገቢውን ድርጊትና ምክንያት ይጠቀሙ። የውሳኔው ጊዜና ሰጪ በታሪክ ይቀመጣሉ።",
+          "Use explicit reject, suspend or archive actions and the required reason. Actor and decision time remain in history."
+        ],
+        [
+          "የታገደ ወይም ወደ ማህደር የተዛወረ አባል የት/ቤቱን የግል መረጃ መዳረሻ ማግኘት የለበትም። ክፍት ግብዣዎችና ያልጸደቁ ትስስሮች ይቋረጣሉ።",
+          "Suspended/archived members must lose private member access. Open invitations and unapproved links are cleared or revoked as appropriate."
+        ],
+        [
+          "ድጋሚ ማንቃት የቀድሞ ታሪክን አያጠፋም፣ ያልተፈቀደ መለያን አያገናኝም፣ የቀድሞ የክፍል ኃላፊነትንም በራሱ አይመልስም።",
+          "Reactivation preserves history, does not approve an unreviewed account link, and does not automatically restore old coordinator authority."
+        ]
+      ]
+    },
+    {
+      "am": "የክፍል አገልግሎት ጊዜዎች",
+      "en": "Department participation periods",
+      "items": [
+        [
+          "በአባሉ ገጽ ላይ ክፍል ይምረጡ፣ የመጀመሪያ ቀንና አማራጭ የመጨረሻ ቀን ያስገቡ። ለብዙ ክፍሎች መመደብ ይቻላል።",
+          "Choose a department and enter the start date plus optional end date on the member detail page. One person can serve in several departments."
+        ],
+        [
+          "ለአንድ አባልና አንድ ክፍል ከአንድ በላይ ንቁ ምደባ መኖር የለበትም። የወደፊት መጀመሪያ ቀን ያለው ምደባ ከቀኑ በፊት የክፍል መዳረሻ አይሰጥም።",
+          "There must be at most one active participation per member/department. A future-dated period is scheduled and must not give department visibility early."
+        ],
+        [
+          "አገልግሎት ሲያበቃ ተገቢ የመጨረሻ ቀን ያስገቡ። የመጨረሻ ቀን ከመጀመሪያው ቀድሞ መሆን የለበትም።",
+          "End a participation with a valid date. An end date before its start must be rejected, not silently corrected."
+        ],
+        [
+          "ወደ ክፍሉ ሲመለስ አዲስ የአገልግሎት ጊዜ ይፈጠራል። የቀድሞው የመጨረሻ ቀንና ውሳኔ ሰጪ አይጠፉም። አባልነት የአስተባባሪ ምደባን አይተካም።",
+          "Returning creates a new period; the old end date and actor stay intact. Department membership is separate from a coordinator appointment."
+        ]
+      ]
+    },
+    {
+      "am": "የአባሉ የግል አገልግሎት",
+      "en": "Member self-service",
+      "items": [
+        [
+          "የጸደቀ አባል /my-profile ላይ የራሱን መዝገብ፣ የክፍል ምደባና የተፈቀዱ የውሳኔ መረጃዎች ያያል።",
+          "An approved member uses /my-profile to view the own record, department participation and permitted status/decision information."
+        ],
+        [
+          "ሙሉ ስም፣ አማራጭ የእንግሊዝኛ አጻጻፍ፣ ስልክና ማስታወሻ ማዘመን ይቻላል። የአባልነት ሁኔታ፣ ት/ቤትና ኦፊሴላዊ ምደባ በራስ መቀየር አይቻልም።",
+          "Permitted edits include name, optional English spelling, phone and service notes. Membership status, school and official assignments are not self-editable."
+        ],
+        [
+          "ለምሳሌ ሐና Hanna ደሞ የሚል ቅይጥ ጽሑፍ ያስቀምጡ። ዳግም ይክፈቱና ቋንቋ ይቀይሩ፤ የተጻፈው ጽሑፍ እንዳለ መቆየት አለበት።",
+          "Save mixed text such as ሐና Hanna ደሞ, reload and switch languages. The submitted text must remain unchanged."
+        ],
+        [
+          "ያልጸደቀ፣ የተከለከለ፣ የታገደ ወይም ወደ ማህደር የተዛወረ መለያ የተገደበ የራስ ሁኔታን ብቻ ያያል። የሌላ አባልን ገጽ በቀጥታ መክፈት መከልከል አለበት።",
+          "Pending, rejected, suspended or archived accounts see only permitted own status information. Direct access to another member's record must be denied."
+        ]
+      ]
+    },
+    {
+      "am": "ሪፖርቶችና የመዳረሻ ድንበሮች",
+      "en": "Reports and access boundaries",
+      "items": [
+        [
+          "የክፍል ማሳያ ሪፖርት መጀመሪያ ረቂቅ ነው። አስተባባሪው ለዋና አስተባባሪ ያቀርባል። ወደ በላይ የሚለቀቀው በት/ቤቱ መሪ ፈቃድ ብቻ ነው።",
+          "A demo report starts as a draft. The coordinator submits locally; upward release requires the school lead's action."
+        ],
+        [
+          "ወረዳ፣ ሀገረ ስብከት፣ የአንድነት ዘርፍና ቦርድ በተመደቡበት የሥራ ወሰን ውስጥ የተለቀቁትን ያያሉ። ሁሉም የበላይ ሚናዎች እኩል መዳረሻ የላቸውም።",
+          "District, diocese, division and board users see released information within their geographic/functional scope. Upper roles do not all have identical access."
+        ],
+        [
+          "ያልቀረበ ወይም ያልተለቀቀ ሪፖርት ዜሮ እንቅስቃሴ ማለት አይደለም። የማሳያ ማጠቃለያዎች የሪፖርት ቅጽና የመለኪያ ደንብ ሳይጸድቅ ኦፊሴላዊ ብሔራዊ ስታቲስቲክስ አይደሉም።",
+          "Missing or unreleased reporting is not zero activity. Demo summaries are not official national statistics without agreed templates and indicator definitions."
+        ],
+        [
+          "ሙሉ የሪፖርት ቅጾች፣ የወቅት አስተዳደር፣ ስሪቶችና የእርማት መመለሻ ዑደት ገና አልተጠናቀቁም።",
+          "Full report templates, cycle management, versioning and return-for-correction workflows remain planned."
+        ]
+      ]
+    },
+    {
+      "am": "ቴክኒካል መረጃና ችግር መፍታት",
+      "en": "Local operation and troubleshooting",
+      "items": [
+        [
+          "ቴክኖሎጂ፦ Laravel 13፣ PHP 8.5፣ Inertia 2፣ Vue 3፣ TypeScript እና PostgreSQL። የማስተናገጃ አቅራቢ አልተመረጠም። ይህ ሰነድ የማሰማራት መመሪያ አይደለም።",
+          "Stack: Laravel 13, PHP 8.5, Inertia 2, Vue 3, TypeScript and PostgreSQL. Hosting is undecided. This is not a deployment runbook."
+        ],
+        [
+          "DBngin የአካባቢውን PostgreSQL ያስነሳል። TablePlus ለመመልከት ይጠቅማል። የፕሮጀክቱ ዳታቤዝ sunday_school_unity ነው፤ የይለፍ ቃሉ በ.env ብቻ ይቆይ።",
+          "DBngin runs local PostgreSQL; TablePlus is the GUI client. The project database is sunday_school_unity. Keep its credentials only in local configuration."
+        ],
+        [
+          "403 ከታየ የትኛው መለያና ንቁ ወሰን እንዳለ ያረጋግጡ። የሌላ ት/ቤት ገጽ ላይ 403 መታየት የሚጠበቅ ጥበቃ ሊሆን ይችላል።",
+          "For a 403, check the signed-in account and active scope. A denial on another school's record may be the expected protection."
+        ],
+        [
+          "ኢሜይል ካልታየ Mailpit 1025/8025 መስራቱንና የግብዣ አቅርቦት ሁኔታን ይመልከቱ። ዳታቤዝን አያጥፉ፣ የናሙና መዝገቦችን ለመመለስ ድጋሚ አያስጀምሩ።",
+          "For missing mail, check Mailpit ports 1025/8025 and the invitation delivery status. Do not wipe the database or reseed over changed records to recover."
+        ]
+      ]
+    },
+    {
+      "am": "የመጀመሪያ ግምገማ ዝርዝር",
+      "en": "First-review acceptance checklist",
+      "items": [
+        [
+          "1. መጀመሪያ በሦስቱ ዋና ሚናዎች መረጃ ብቻ ይመልከቱ። ከዚያ የሌላ ት/ቤት፣ የግል አባልና ረቂቅ ሪፖርት መዳረሻ መከልከሉን በቀጥታ አገናኝ ይመርምሩ።",
+          "1. Inspect the three main roles without changing records. Then check direct-URL denial for other schools, private member records and drafts."
+        ],
+        [
+          "2. አባል ያለ መለያ መዝግቡ፣ ግብዣ ላኩ፣ ተቀበሉና በአካባቢው መሪ አጽድቁ። የድጋሚ ጠቅታና የቆየ አገናኝ ሁኔታ ይመርምሩ።",
+          "2. Register without login, invite, accept and approve locally. Inspect double-click and stale-link behavior manually."
+        ],
+        [
+          "3. ቅይጥ ጽሑፍ ያስቀምጡና ቋንቋ ይቀይሩ። የክፍል ጊዜን ያጠናቅቁና አዲስ ጊዜ ይጀምሩ። አባልን አግዱና መዳረሻው መቆሙን ያረጋግጡ።",
+          "3. Preserve mixed text through language changes, end/rejoin a department, and suspend a member to check immediate access restriction."
+        ],
+        [
+          "4. ችግር ሲገኝ መለያ፣ ንቁ ወሰን፣ ገጽ፣ ድርጊት፣ የተጠበቀውና የታየው ውጤት ይመዝግቡ። ማረጋገጫው ካልተሰጠ ተጠናቋል አይባልም።",
+          "4. Record account, active scope, page/action, expected and actual results. Keep acceptance pending until the owner explicitly confirms it."
+        ]
+      ]
+    },
+    {
+      "am": "ከግምገማ በኋላ የሚወሰኑ ጉዳዮች",
+      "en": "Decisions after review",
+      "items": [
+        [
+          "የመሪ ምደባ፣ የተቋም መመዝገብና ልዩ የበላይ ጣልቃ ገብነት የሚፈቀድበት ሁኔታ ከባለድርሻዎች ጋር ይረጋገጥ።",
+          "Confirm institutional onboarding, lead provisioning and exceptional higher-office intervention rules with stakeholders."
+        ],
+        [
+          "የሙከራ ት/ቤቶች፣ ቋንቋ ቅድሚያ፣ የእውነተኛ መረጃ የመጠቀም ፈቃድና የድጋፍ ኃላፊ ይወሰኑ።",
+          "Agree pilot schools, language review, authorization for real data and support ownership."
+        ],
+        [
+          "የአካባቢ ማሳያ የtrust ግንኙነትና Mailpit ለማስተናገጃ አይተላለፉም። ምትኬ፣ መልሶ ማግኛ፣ የምስጢር አስተዳደርና የኦፕሬሽን ፖሊሲ ያስፈልጋሉ።",
+          "Local trust authentication and Mailpit are not deployment settings. Hosting needs backups, recovery, secrets management and operational policy."
+        ],
+        [
+          "ምንጮች፦ የፕሮጀክቱ የሁኔታ መዝገብ፣ የሥራ ዝርዝር፣ routes/web.php እና የTASK-024/027/028/029 ሪፖርቶች። ይህ ማሸጊያ የኮድ ሁኔታን ይገልጻል፤ የሥራ ውጤት ጥናት አይደለም።",
+          "Sources: project checkpoint, backlog, routes/web.php and TASK-024/027/028/029 reports. This pack describes implementation status, not measured operational outcomes."
+        ]
+      ]
+    }
+  ]
+}

@@ -11,10 +11,11 @@ The local lead approves memberships/account links and local report release under
 | Member | Permitted own data | No private directory by default | Own participation/information only | No | Published information only |
 | Department assistant | Own | Delegated fields/scope only | Delegated tasks | No | No |
 | Department coordinator | Own | Relevant authorized records | Assigned department | Submit, not final local release | No unpublished cross-school data |
-| School lead | Own | Approve and manage own school | All authorized local departments | Local approve/release | Own submissions/feedback |
+| School lead | Own | Approve and manage own school | All authorized local departments & coordinator appointments | Local approve/release | Own submissions/feedback |
 | District/diocese officer | Own | No default raw editing | Assigned coordination duties | Higher review where assigned | Released reports in jurisdiction |
 | Union division officer | Own | Only explicitly granted functions | Own division and authorized reach | Assigned review functions | Authorized category/jurisdiction |
 | Union board member | Own | No blanket editing | Governance responsibilities | Explicitly assigned | Authorized governance reports |
+| Union Super Administrator | Own | No automatic private member directory or membership approval | Nationwide org create/update & local-lead appointments | No local draft access or release | Released reports, completeness & national summaries |
 | Auditor | Own | Minimum assigned evidence | Record findings | Audit outcome, not source rewriting | Authorized review scope |
 | Technical operator | Account operations | No automatic business mandate | Infrastructure duties | No automatic approval authority | Operational monitoring |
 

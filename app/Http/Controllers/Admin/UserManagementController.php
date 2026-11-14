@@ -41,19 +41,19 @@ class UserManagementController extends Controller
             'filters' => [
                 'search' => $search,
             ],
-            'roles' => $this->roleOptions(),
+            'roles' => $this->roleOptions($request),
         ]);
     }
 
     /**
      * Show the user creation page.
      */
-    public function create(): Response
+    public function create(Request $request): Response
     {
         $this->authorize('create', User::class);
 
         return Inertia::render('admin/Users/Create', [
-            'roles' => $this->roleOptions(),
+            'roles' => $this->roleOptions($request),
         ]);
     }
 
@@ -97,13 +97,25 @@ class UserManagementController extends Controller
      */
     public function edit(Request $request, User $user): Response
     {
-        $this->authorize('view', $user);
+        if ($user->hasBusinessIdentity()) {
+            ActivityLogger::record(
+                actor: $request->user(),
+                event: 'users.business-edit-denied',
+                description: "Denied technical edit screen access for business identity {$user->email}.",
+                subject: $user,
+                request: $request,
+            );
+
+            abort(403, 'Technical operators cannot inspect or modify Sunday School business identities.');
+        }
+
+        $this->authorize('update', $user);
 
         $user->load('roles');
 
         return Inertia::render('admin/Users/Edit', [
             'user' => $this->userSummary($user, $request),
-            'roles' => $this->roleOptions(),
+            'roles' => $this->roleOptions($request),
         ]);
     }
 
@@ -112,9 +124,28 @@ class UserManagementController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
+        if ($user->hasBusinessIdentity()) {
+            ActivityLogger::record(
+                actor: $request->user(),
+                event: 'users.business-takeover-denied',
+                description: "Denied technical password/email/profile mutation for business identity {$user->email}.",
+                subject: $user,
+                request: $request,
+            );
+
+            abort(403, 'Technical operators cannot modify passwords, emails, or profile details of Sunday School business identities.');
+        }
+
         $this->authorize('update', $user);
 
         $validated = $request->validated();
+
+        if ($user->isProtectedDemoPersona() && (
+            ($validated['password'] !== null && $validated['password'] !== '')
+            || strtolower((string) $validated['email']) !== strtolower((string) $user->email)
+        )) {
+            abort(403, 'Protected demo persona email and password credentials cannot be overwritten through technical administration.');
+        }
 
         $user->fill([
             'name' => $validated['name'],
@@ -151,13 +182,43 @@ class UserManagementController extends Controller
      */
     public function updateRoles(UpdateUserRolesRequest $request, User $user): RedirectResponse
     {
+        if ($user->hasBusinessIdentity()) {
+            ActivityLogger::record(
+                actor: $request->user(),
+                event: 'users.business-role-grant-denied',
+                description: "Denied technical role assignment on business identity {$user->email}.",
+                subject: $user,
+                request: $request,
+            );
+
+            abort(403, 'Technical platform roles cannot be granted to or modified on Sunday School business identities.');
+        }
+
         $this->authorize('updateRoles', $user);
 
         $roles = $request->validated('roles', []);
 
-        if ($request->user()?->is($user) && ! in_array(SystemRole::SUPER_ADMIN, $roles, true)) {
+        if ($request->user()?->is($user)
+            && $request->user()?->hasRole(SystemRole::SUPER_ADMIN)
+            && ! in_array(SystemRole::SUPER_ADMIN, $roles, true)
+        ) {
             return to_route('users.edit', $user)->withErrors([
                 'roles' => 'You cannot remove your own Super Admin role from this screen.',
+            ]);
+        }
+
+        if ($request->user()?->is($user)
+            && $request->user()?->hasRole(SystemRole::ADMIN)
+            && ! in_array(SystemRole::ADMIN, $roles, true)
+        ) {
+            return to_route('users.edit', $user)->withErrors([
+                'roles' => 'You cannot remove your own Admin role from this screen.',
+            ]);
+        }
+
+        if (! $request->user()?->hasRole(SystemRole::SUPER_ADMIN) && $user->hasRole(SystemRole::SUPER_ADMIN)) {
+            return to_route('users.edit', $user)->withErrors([
+                'roles' => 'Only a Super Admin can modify roles on a Super Admin account.',
             ]);
         }
 
@@ -188,6 +249,18 @@ class UserManagementController extends Controller
      */
     public function destroy(Request $request, User $user): RedirectResponse
     {
+        if ($user->hasBusinessIdentity() || $user->isProtectedDemoPersona()) {
+            ActivityLogger::record(
+                actor: $request->user(),
+                event: 'users.business-delete-denied',
+                description: "Denied technical deletion of protected/business identity {$user->email}.",
+                subject: $user,
+                request: $request,
+            );
+
+            abort(403, 'Sunday School business identities and protected demo personas cannot be deleted by a technical operator.');
+        }
+
         $this->authorize('delete', $user);
 
         if ($request->user()?->is($user)) {
@@ -210,16 +283,22 @@ class UserManagementController extends Controller
     /**
      * Normalize a user for admin page props.
      *
-     * @return array{id: int, name: string, email: string, roles: array<int, string>, isCurrentUser: bool, emailVerifiedAt: string|null, createdAt: string|null}
+     * @return array{id: int, name: string, email: string, roles: array<int, string>, isCurrentUser: bool, isBusinessIdentity: bool, canEdit: bool, canDelete: bool, emailVerifiedAt: string|null, createdAt: string|null}
      */
     private function userSummary(User $user, Request $request): array
     {
+        $actor = $request->user();
+        $isBusiness = $user->hasBusinessIdentity();
+
         return [
             'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
             'roles' => $user->roles->pluck('name')->values()->all(),
-            'isCurrentUser' => $request->user()?->is($user) ?? false,
+            'isCurrentUser' => $actor?->is($user) ?? false,
+            'isBusinessIdentity' => $isBusiness,
+            'canEdit' => $actor !== null ? $actor->can('update', $user) : false,
+            'canDelete' => $actor !== null ? $actor->can('delete', $user) : false,
             'emailVerifiedAt' => $user->email_verified_at?->toDateTimeString(),
             'createdAt' => $user->created_at?->toDateTimeString(),
         ];
@@ -230,9 +309,12 @@ class UserManagementController extends Controller
      *
      * @return array<int, array{name: string, label: string, description: string|null, usersCount: int}>
      */
-    private function roleOptions(): array
+    private function roleOptions(Request $request): array
     {
+        $assignable = SystemRole::assignableRoleNamesFor($request->user());
+
         return Role::query()
+            ->whereIn('name', $assignable)
             ->withCount('users')
             ->orderBy('name')
             ->get()

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
 import AppLogoIcon from '@/components/AppLogoIcon.vue';
+import { useT } from '@/composables/useT';
 import { home } from '@/routes';
 
+const t = useT();
 const page = usePage();
-const appName = (page.props.name as string) ?? 'Laravel Boilerplate';
+const appName = (page.props.name as string) ?? 'Sunday School Unity';
 
 defineProps<{
     title?: string;
@@ -47,7 +49,7 @@ defineProps<{
                                 <div
                                     class="text-[0.68rem] font-semibold tracking-[0.22em] text-stone-500 uppercase"
                                 >
-                                    Secure access
+                                    {{ t('auth.secure_access') }}
                                 </div>
                                 <div class="text-sm font-medium">
                                     {{ appName }}

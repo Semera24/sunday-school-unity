@@ -170,6 +170,7 @@ class ExportCenterController extends Controller
     {
         return User::query()
             ->with('roles')
+            ->technicalOnly()
             ->orderBy('name')
             ->get()
             ->map(fn (User $user): array => [
@@ -234,39 +235,51 @@ class ExportCenterController extends Controller
      */
     private function buildSummary(Request $request): array
     {
+        $actor = $request->user();
+        $canViewUsers = $actor?->can('users.view') ?? false;
+        $canViewRoles = $actor?->can('roles.view') ?? false;
+        $canViewLogs = $actor?->can('activity-logs.view') ?? false;
+
+        $technicalUsersQuery = User::query()->technicalOnly();
+
         return [
             'counts' => [
-                'users' => User::query()->count(),
-                'roles' => Role::query()->count(),
-                'unreadNotifications' => $request->user()?->unreadNotifications()->count() ?? 0,
-                'activityLogs' => ActivityLog::query()->count(),
+                'users' => $canViewUsers ? (clone $technicalUsersQuery)->count() : 0,
+                'roles' => $canViewRoles ? Role::query()->count() : 0,
+                'unreadNotifications' => $actor?->unreadNotifications()->count() ?? 0,
+                'activityLogs' => $canViewLogs ? ActivityLog::query()->excludePrivateSchoolEvents()->count() : 0,
             ],
-            'recentUsers' => User::query()
-                ->with('roles')
-                ->latest()
-                ->limit(5)
-                ->get()
-                ->map(fn (User $user): array => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'roles' => $user->roles->pluck('name')->values()->all(),
-                    'createdAt' => $user->created_at?->toISOString(),
-                ])
-                ->values()
-                ->all(),
-            'recentEvents' => ActivityLog::query()
-                ->latest('created_at')
-                ->limit(6)
-                ->get()
-                ->map(fn (ActivityLog $log): array => [
-                    'id' => $log->id,
-                    'event' => $log->event,
-                    'description' => $log->description,
-                    'createdAt' => $log->created_at?->toISOString(),
-                ])
-                ->values()
-                ->all(),
+            'recentUsers' => $canViewUsers
+                ? (clone $technicalUsersQuery)
+                    ->with('roles')
+                    ->latest()
+                    ->limit(5)
+                    ->get()
+                    ->map(fn (User $user): array => [
+                        'id' => $user->id,
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'roles' => $user->roles->pluck('name')->values()->all(),
+                        'createdAt' => $user->created_at?->toISOString(),
+                    ])
+                    ->values()
+                    ->all()
+                : [],
+            'recentEvents' => $canViewLogs
+                ? ActivityLog::query()
+                    ->excludePrivateSchoolEvents()
+                    ->latest('created_at')
+                    ->limit(6)
+                    ->get()
+                    ->map(fn (ActivityLog $log): array => [
+                        'id' => $log->id,
+                        'event' => $log->event,
+                        'description' => $log->description,
+                        'createdAt' => $log->created_at?->toISOString(),
+                    ])
+                    ->values()
+                    ->all()
+                : [],
         ];
     }
 }

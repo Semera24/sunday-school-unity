@@ -4,7 +4,7 @@ Working product name for a hierarchical Ethiopian Orthodox Sunday School members
 
 **New AI agent: read [AI_START_HERE.md](AI_START_HERE.md) first, then [AGENTS.md](AGENTS.md).**
 
-Current stage: documentation and application-foundation preparation. Sunday School features have not been implemented or accepted. See [project status](docs/PROJECT_STATUS.md) for the actual dependency and runtime state.
+Current stage: first-review candidate for hierarchy, scoped access and local membership management through TASK-029. Owner manual acceptance is pending; the broader proposed MVP is not complete. See [project status](docs/PROJECT_STATUS.md) for the actual dependency and runtime state.
 
 ## Documentation
 
@@ -26,7 +26,8 @@ Current stage: documentation and application-foundation preparation. Sunday Scho
 | [Decisions](docs/decisions/README.md) | Accepted direction and proposed technical decisions |
 | [Status / handoff](docs/PROJECT_STATUS.md) | Latest checkpoint, evidence and next work |
 | [AI collaboration](docs/13-ai-collaboration-workflow.md) | Gemini implementation, reviewer assessment and owner manual acceptance |
-| [Gemini entry](GEMINI.md) | Initial read-only assignment |
+| [First-review pack](docs/14-first-review-pack.md) | Bilingual presentation, application manual and readiness summary |
+| [Gemini entry](GEMINI.md) | Current implementer assignment and handoff |
 
 Research and detailed clarifications are linked from the requirements. All automated functional test suites are excluded at the owner's direction. Builds and proportionate static checks are allowed; functional acceptance is performed manually by the owner.
 

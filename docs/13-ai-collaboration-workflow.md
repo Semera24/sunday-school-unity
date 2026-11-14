@@ -64,3 +64,7 @@ The owner performs the provided steps. Record Pending/Passed/Issue found separat
 - Do not put keys, passwords, tokens, database dumps or real member information in reports.
 - Never edit approved requirements to make an implementation mismatch disappear.
 - Do not rewrite historical audit evidence; append current corrections/checkpoints.
+
+## Current handoff update — 14 November 2026
+
+The initial onboarding report has been received and [reviewed](reports/2026-11-14-gemini-onboarding-review.md). Its suggested setup-only next task is superseded by the owner’s hierarchy-first priority. Follow [TASK-024](tasks/TASK-024-hierarchy-access-demo.md) and current GEMINI/PROJECT_STATUS instructions. Return the bounded design/setup breakdown first; do not repeat onboarding or begin the whole backlog.

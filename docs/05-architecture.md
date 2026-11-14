@@ -24,7 +24,7 @@ Use PostgreSQL relationships and transactions for domain consistency. Private fi
 
 ## Frontend and internationalization
 
-Inertia/Vue remains in the Laravel repository. SSR is initially disabled. Batch attendance/activity/form interactions where practical; paginate large collections. Extend existing localization beyond English and remove hard-coded user-facing strings. Ethiopian-calendar entry/display and Ethiopic print fonts need deliberate implementation and owner review.
+Inertia/Vue remains in the Laravel repository. SSR is initially disabled. Batch attendance/activity/form interactions where practical; paginate large collections. Amharic (`am`) is default; English (`en`) is secondary/fallback. Use shared Laravel catalogues through Inertia, with per-user preference. Preserve mixed-language submitted text in PostgreSQL UTF-8 independently of UI language. Core entry points are translated; remaining hard-coded inherited strings still need work. See [language/data requirements](requirements/language-and-data.md). Ethiopian-calendar entry/display and Ethiopic print fonts need deliberate implementation and owner review.
 
 ## Operational choices
 

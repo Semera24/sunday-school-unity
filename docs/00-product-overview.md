@@ -43,7 +43,7 @@ A member submits a profile request to their Sunday School. The lead reviews and 
 
 ## Demonstration and claims
 
-Current state: inherited generic application code and project documents; Sunday School workflows are not implemented. Do not present proposed screens as delivered functionality. Before every presentation, update [project status](PROJECT_STATUS.md) and [backlog](08-backlog.md), then select only manually accepted functionality for a live demonstration. Use fictional data.
+Current state: hierarchy/scoped access and local member registration, invitations, account linking, lifecycle and department participation are implemented through TASK-029 and In review. Demo reports support submission/release and scoped visibility; full production reporting remains planned. Owner manual acceptance is Pending. Present this as a first-review candidate using fictional data, not an accepted national MVP. Use the [bilingual review pack](14-first-review-pack.md) and explicitly label unaccepted behavior during the demonstration.
 
 ## Success measures to agree for the pilot
 

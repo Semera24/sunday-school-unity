@@ -13,6 +13,8 @@ Updated 14 November 2026. “Accepted” means explicitly directed/confirmed by 
 | ADR-007 | Keep Inertia 2 initially; SSR disabled | Working | Avoid unrelated major migration; no authenticated-UI SSR need established |
 | ADR-008 | Sunday School Unity / `sunday-school-unity` | Working name | User authorized appropriate naming; official identity not established |
 | ADR-009 | One application/shared DB with scoped local workspaces | Working | Simpler operations; access isolation must be implemented explicitly |
+| ADR-011 | Amharic primary/default; English secondary; preserve mixed-language data in PostgreSQL UTF-8 | Accepted direction | UI translation and stored content are separate; see language/data policy |
+| ADR-012 | Hierarchy/access with fictional accounts is the first domain milestone | Accepted priority | Runtime preparation is prerequisite; detailed matrix/schema remains proposed |
 | ADR-010 | Hosting/provider, institutional sponsor, exact hierarchy and provisioning | Open | Do not invent these decisions or purchase services |
 
 For a new consequential decision, add a short dedicated record with date, context, alternatives, decision, status, consequences and linked requirements/tasks. Change status only with evidence; implementation convenience is not stakeholder approval.

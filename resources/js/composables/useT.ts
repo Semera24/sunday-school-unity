@@ -7,7 +7,7 @@ type Translations = { [key: string]: string | Translations };
  * Access shared translations exposed by HandleInertiaRequests.
  *
  * Usage: const t = useT(); t('common.save') → "Save"
- * Falls back to the last segment of the key when missing.
+ * English fallback is merged by the server; missing keys remain visible.
  */
 export function useT() {
     const page = usePage<{ translations: Translations }>();
@@ -16,15 +16,17 @@ export function useT() {
         () => page.props.translations ?? {},
     );
 
-    return (key: string): string => {
+    return (key: string, parameters: Record<string, string | number> = {}): string => {
         const value = key
             .split('.')
             .reduce<
                 Translations | string | undefined
             >((carry, segment) => (carry && typeof carry === 'object' ? carry[segment] : undefined), translations.value);
 
-        return typeof value === 'string'
-            ? value
-            : (key.split('.').pop() ?? key);
+        let message = typeof value === 'string' ? value : key;
+        for (const [name, replacement] of Object.entries(parameters)) {
+            message = message.split(`:${name}`).join(String(replacement));
+        }
+        return message;
     };
 }

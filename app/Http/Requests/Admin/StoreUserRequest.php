@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Support\SystemRole;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 class StoreUserRequest extends FormRequest
@@ -13,7 +15,17 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()?->can('users.create') ?? false;
+        $user = $this->user();
+        if ($user === null || ! $user->can('users.create')) {
+            return false;
+        }
+
+        $roles = $this->input('roles', []);
+        if (is_array($roles) && $roles !== [] && ! $user->can('roles.update')) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -23,12 +35,14 @@ class StoreUserRequest extends FormRequest
      */
     public function rules(): array
     {
+        $assignable = SystemRole::assignableRoleNamesFor($this->user());
+
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'confirmed', Password::defaults()],
             'roles' => ['present', 'array'],
-            'roles.*' => ['string', 'distinct', 'exists:roles,name'],
+            'roles.*' => ['string', 'distinct', Rule::in($assignable)],
         ];
     }
 }

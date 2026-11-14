@@ -2,7 +2,7 @@
 
 This file lets a new AI continue without the original conversation. Read it before editing or running setup commands.
 
-**Current collaboration mode:** Gemini/Antigravity implements assigned tasks; the reviewing assistant reviews scope/code/reports and may make fixes. First assignment is read-only onboarding, not TASK-006 execution. Read [GEMINI.md](GEMINI.md) and [workflow](docs/13-ai-collaboration-workflow.md). A current bounded brief takes precedence over the generic continuation prompt below.
+**Current collaboration mode:** Gemini/Antigravity implements assigned tasks; the reviewing assistant reviews scope/code/reports and may make fixes. Implementation through TASK-029 and the TASK-030 bilingual review pack are prepared. Current next action is owner first-review/manual acceptance, not an automatic next implementation task. Read [GEMINI.md](GEMINI.md) and [workflow](docs/13-ai-collaboration-workflow.md). A current bounded brief takes precedence over the generic continuation prompt below.
 
 ## 1. Owner instructions that must survive every handoff
 
@@ -13,6 +13,7 @@ This file lets a new AI continue without the original conversation. Read it befo
 - Members can use their own profiles, assigned forms and information. A member record is not the same as a login account.
 - The **Sunday School lead approves memberships/account links and outgoing reports**, under higher-office oversight. Do not ask again whether higher offices approve every member: they do not.
 - Shared experience/resources are explicitly published; private records are not shared automatically.
+- Amharic is the default interface, English secondary. Preserve Amharic/English/mixed data verbatim in PostgreSQL UTF-8; see [language/data policy](docs/requirements/language-and-data.md).
 - Keep work bounded and documentation current to reduce repeated analysis and credit use. Do not infer unspecified academic ERP modules.
 
 ## 2. Read in this order

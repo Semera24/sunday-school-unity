@@ -191,14 +191,26 @@ const deleteSelectedUser = (user: ManagedUser): void => {
                         </td>
                         <td class="px-4 py-4">
                             <div class="flex items-center justify-end gap-2">
+                                <Badge
+                                    v-if="user.isBusinessIdentity"
+                                    variant="outline"
+                                    class="text-xs text-muted-foreground"
+                                >
+                                    Protected Business Identity
+                                </Badge>
+
                                 <ActionIconLink
+                                    v-if="user.canEdit !== false"
                                     :href="editUser(user.id)"
                                     label="Edit user"
                                     :icon="SquarePen"
                                 />
 
                                 <ConfirmActionDialog
-                                    v-if="!user.isCurrentUser"
+                                    v-if="
+                                        !user.isCurrentUser &&
+                                        user.canDelete !== false
+                                    "
                                     title="Delete user"
                                     :description="`Delete ${user.name}? This removes the user record and any role assignments tied to it.`"
                                     confirm-label="Delete user"

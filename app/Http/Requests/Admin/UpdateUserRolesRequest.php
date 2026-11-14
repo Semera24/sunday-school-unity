@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Support\SystemRole;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateUserRolesRequest extends FormRequest
 {
@@ -12,7 +14,9 @@ class UpdateUserRolesRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()?->can('users.update') ?? false;
+        $user = $this->user();
+
+        return $user !== null && $user->can('users.update') && $user->can('roles.update');
     }
 
     /**
@@ -22,9 +26,11 @@ class UpdateUserRolesRequest extends FormRequest
      */
     public function rules(): array
     {
+        $assignable = SystemRole::assignableRoleNamesFor($this->user());
+
         return [
             'roles' => ['present', 'array'],
-            'roles.*' => ['string', 'distinct', 'exists:roles,name'],
+            'roles.*' => ['string', 'distinct', Rule::in($assignable)],
         ];
     }
 

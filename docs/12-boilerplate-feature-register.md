@@ -76,7 +76,7 @@ Disposition applies to the future product copy, not the preserved reference.
 | BP-019 | Print/PDF workspace summary | Vue print page and Blade/DomPDF summary | Reuse technique; replace generic content; verify Ethiopic font rendering manually |
 | BP-020 | CSV import engine | `Support/Import/CsvImportEngine.php`, preview/error objects, `import_runs` | Partial: no route/UI/domain mapper; add school authorization, failure policy, duplicate handling and commit safety |
 | BP-021 | API baseline | `/api/v1`, Sanctum tokens, current user, notifications/media/admin/audit resources | Defer exposure; browser Inertia application does not require these token endpoints |
-| BP-022 | Localization infrastructure | Locale middleware, user locale, shared translations, `useT()` | Reuse foundation; English only; many pages/navigation/controller strings still hard-coded |
+| BP-022 | Localization infrastructure | Locale middleware, user locale, shared translations, `useT()` | Reuse foundation; originally English only. Reviewer added Amharic defaults/catalogues and core entry labels; many inherited page/controller strings remain English |
 | BP-023 | Application shell and reusable UI | Sidebar/layouts, tables, toolbars, forms, pagination, dialogs, loading/empty/error states | Reuse; adapt branding/navigation, accessibility and mobile workflows |
 | BP-024 | Typed route generation | Wayfinder PHP package and Vite plugin | Reuse; regenerate bindings as routes change |
 | BP-025 | Queue/cache/session foundation | Database migrations/configuration, worker development command | Reuse; no domain background jobs or production process management supplied |
@@ -124,7 +124,7 @@ Define all-or-nothing versus partial import, retry behavior, duplicate detection
 
 User export builds all rows in memory even for streamed output. Workspace summary includes user details and audit events behind `exports.view`, rather than individually checking all the permissions needed for its included content. Adapt query scope and disclosure rules before exposing these reports to school staff.
 
-Only English is registered; translation plumbing alone is not a bilingual interface. PDF/print output needs appropriate Ethiopic fonts and manual review.
+At source audit only English was registered. Current reviewer changes register Amharic/English and translate core entry points; this is not complete bilingual coverage. See [language/data policy](requirements/language-and-data.md). PDF/print output needs appropriate Ethiopic fonts and manual review.
 
 ### 6. Settings, audit and files need domain-aware ownership
 

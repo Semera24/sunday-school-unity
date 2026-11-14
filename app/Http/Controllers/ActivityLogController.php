@@ -19,6 +19,7 @@ class ActivityLogController extends Controller
 
         $logs = ActivityLog::query()
             ->with('actor')
+            ->excludePrivateSchoolEvents()
             ->when($search !== '', fn ($query) => $query->searchLike(['description', 'event'], $search))
             ->when($event !== '', fn ($query) => $query->where('event', $event))
             ->latest('created_at')
@@ -44,6 +45,7 @@ class ActivityLogController extends Controller
                 'event' => $event,
             ],
             'eventOptions' => ActivityLog::query()
+                ->excludePrivateSchoolEvents()
                 ->select('event')
                 ->distinct()
                 ->orderBy('event')
@@ -58,6 +60,12 @@ class ActivityLogController extends Controller
      */
     public function show(ActivityLog $activityLog): Response
     {
+        abort_if(
+            in_array($activityLog->event, ActivityLog::PRIVATE_SCHOOL_EVENTS, true),
+            403,
+            'Private local school, member, invitation, and draft audit entries are not accessible to technical operators.'
+        );
+
         $activityLog->load('actor');
 
         return Inertia::render('activity-logs/Show', [

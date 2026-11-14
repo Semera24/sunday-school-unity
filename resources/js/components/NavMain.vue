@@ -16,6 +16,7 @@ import {
     SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { useCurrentUrl } from '@/composables/useCurrentUrl';
+import { useT } from '@/composables/useT';
 import type { NavGroup } from '@/types';
 
 defineProps<{
@@ -27,6 +28,7 @@ const emit = defineEmits<{
     toggleGroup: [title: string];
 }>();
 
+const t = useT();
 const { isCurrentUrl } = useCurrentUrl();
 </script>
 
@@ -35,10 +37,10 @@ const { isCurrentUrl } = useCurrentUrl();
         <SidebarSeparator v-if="index > 0" class="mx-2 my-3" />
         <Collapsible :open="openGroups[group.title]">
             <SidebarGroup class="px-2 py-0">
-                <SidebarGroupLabel>{{ group.title }}</SidebarGroupLabel>
+                <SidebarGroupLabel>{{ group.labelKey ? t(group.labelKey) : group.title }}</SidebarGroupLabel>
                 <CollapsibleTrigger as-child>
                     <SidebarGroupAction
-                        :aria-label="`${openGroups[group.title] ? 'Collapse' : 'Expand'} ${group.title}`"
+                        :aria-label="t(openGroups[group.title] ? 'common.collapse' : 'common.expand', { name: group.labelKey ? t(group.labelKey) : group.title })"
                         @click="emit('toggleGroup', group.title)"
                     >
                         <ChevronDown
@@ -60,11 +62,11 @@ const { isCurrentUrl } = useCurrentUrl();
                             <SidebarMenuButton
                                 as-child
                                 :is-active="isCurrentUrl(item.href)"
-                                :tooltip="item.title"
+                                :tooltip="item.labelKey ? t(item.labelKey) : item.title"
                             >
                                 <Link :href="item.href">
                                     <component :is="item.icon" />
-                                    <span>{{ item.title }}</span>
+                                    <span>{{ item.labelKey ? t(item.labelKey) : item.title }}</span>
                                 </Link>
                             </SidebarMenuButton>
                         </SidebarMenuItem>

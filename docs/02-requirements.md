@@ -28,7 +28,7 @@ Confirmed detail takes precedence over earlier speculative research. Read [hiera
 | ID | Requirement | Manual review/check |
 |---|---|---|
 | NFR-001 | Mobile-friendly forms, tables and navigation | Owner uses selected small-screen device; actions and errors remain usable |
-| NFR-002 | Amharic/English UI with translation architecture | Inspect core journeys, print output and long Ethiopic names |
+| NFR-002 | Amharic-primary/English-secondary UI; preserve mixed-language data in PostgreSQL UTF-8 | Inspect core journeys, print output and long Ethiopic names |
 | NFR-003 | Ethiopian-calendar entry/display where agreed; preserve correct date semantics | Check known dates and conversions with owner |
 | NFR-004 | Bound lists/uploads/imports and visibly distinguish saved/pending/failed | Use representative data and interrupted connections |
 | NFR-005 | Preserve relational integrity, scoped authorization and transaction consistency | Owner manually exercises invalid links and interrupted workflows |
@@ -44,3 +44,5 @@ Full accounting/POS/payroll, inventory ERP, conventional examinations/promotion,
 ## Change control
 
 Mark additions Proposed until agreed. Update the relevant requirement, role/data implications, task and decision/status entry together. Do not infer official institutional rules from a local example or from existing boilerplate behavior. See [manual acceptance](09-manual-testing-and-acceptance.md).
+
+Language/storage details and current coverage: [language/data requirements](requirements/language-and-data.md). Hierarchy/privilege demonstration with fictional accounts is the first domain milestone; see [TASK-024](tasks/TASK-024-hierarchy-access-demo.md).
